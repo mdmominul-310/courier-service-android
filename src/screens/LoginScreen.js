@@ -5,10 +5,11 @@ import {
   Center,
   FormControl,
   Input,
+  Link,
   Stack,
   WarningOutlineIcon,
 } from 'native-base';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Alert,
   SafeAreaView,
@@ -21,10 +22,10 @@ import Lock from '../assets/lock.svg';
 import AlertWarning from '../components/Shared/AlertWarning';
 import UseAuth from '../Hooks/UseAuth';
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {signInWithEmail, error} = UseAuth();
+  const { signInWithEmail, error } = UseAuth();
   const handleSubmit = () => {
     signInWithEmail(email, password);
   };
@@ -105,14 +106,19 @@ const LoginScreen = ({navigation}) => {
                 color: 'blue',
                 fontSize: 14,
               }}>
-              Don't have account? Register
+              Don't have account? Registration
             </Text>
           </TouchableOpacity>
+          <Center>
+            <Link href="https://www.alijahan.com/forgetpass">
+              Forget password? click here to reset
+            </Link>
+          </Center>
           <Button
             shadow={2}
             onPress={handleSubmit}
             m={4}
-            style={{backgroundColor: 'green'}}>
+            style={{ backgroundColor: 'green' }}>
             Login
           </Button>
         </FormControl>

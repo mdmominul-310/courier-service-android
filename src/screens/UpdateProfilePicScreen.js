@@ -28,7 +28,7 @@ import UseProfileImg from '../Hooks/UseProfileImg';
 const ImageUpload = () => {
     const { user } = UseAuth();
     const [filePath, setFilePath] = useState({});
-    const profilepic = UseProfileImg();
+    let profilepic = UseProfileImg();
     // success modal state
     const [isOpen, setIsOpen] = React.useState(false);
     const onClose = () => setIsOpen(false);
@@ -98,7 +98,7 @@ const ImageUpload = () => {
                 return;
             }
 
-            setFilePath(response.assets[0]);
+            setFilePath(response?.assets[0]);
 
         });
     };
@@ -127,6 +127,8 @@ const ImageUpload = () => {
             })
             .catch(error => console.log(error))
     }
+    let baseimg = `data:image/jpeg;base64,${profilepic?.userImg}`
+    let uri = `${filePath.uri ? filePath?.uri : baseimg}`
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <Center>
@@ -140,11 +142,14 @@ const ImageUpload = () => {
                 /> */}
                     {profilepic.userImg ? <Image
                         source={{
-                            uri: `data:image/jpeg;base64,${profilepic?.userImg}`,
+                            uri: uri,
                         }}
                         style={{ height: 200, width: 200, borderRadius: 60, marginBottom: 10, marginTop: 10 }}
+                        alt="Profile"
                     /> :
-                        <Avatar bg="purple.600" alignSelf="center" size="2xl" source={{ uri: filePath.uri }} >
+                        <Avatar bg="purple.600" alignSelf="center" size="2xl" source={{ uri: filePath.uri }}
+                            alt="profile"
+                        >
                             Aj
                         </Avatar>
                         // <Avatar

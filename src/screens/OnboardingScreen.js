@@ -50,7 +50,7 @@ const OnboardingScreen = ({ navigation }) => {
             fontWeight: 'bold',
             fontFamily: 'Roboto-MediumItalic',
           }}>
-          Login
+          Log in / Registration
         </Text>
         <MaterialIcons name="arrow-forward-ios" size={22} color="#fff" />
       </TouchableOpacity>

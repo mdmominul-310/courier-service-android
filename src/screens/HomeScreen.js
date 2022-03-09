@@ -22,6 +22,8 @@ import UseAuth from '../Hooks/UseAuth';
 import UseProfileImg from '../Hooks/UseProfileImg';
 import InvoiceItem from '../components/Invoiceitem';
 import { Avatar, Center } from 'native-base';
+import Alijahan from '../assets/alijahan2.svg';
+
 
 export default function HomeScreen({ navigation }) {
   const [gamesTab, setGamesTab] = useState(1);
@@ -52,28 +54,42 @@ export default function HomeScreen({ navigation }) {
       <ScrollView style={{ padding: 20 }}>
         <View
           style={{
+            flex: 2,
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginBottom: 20,
+            marginBottom: 10,
           }}>
-          <Text style={{ fontSize: 18, fontFamily: 'Roboto-Medium' }}>
-            Hello, {user?.displayName}
-          </Text>
-          <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            {
-              profilepic.userImg ? <ImageBackground
-                source={{
-                  uri: `data:image/jpeg;base64,${profilepic?.userImg}`,
-                }}
-                style={{ width: 35, height: 35 }}
-                imageStyle={{ borderRadius: 25 }}
-              /> :
-                <Avatar bg="green.500">
-                  AJ
-                </Avatar>
-            }
+          <View>
+            <Alijahan width={100} height={80} />
+          </View>
 
-          </TouchableOpacity>
+          <View>
+            <View style={{
+              flex: 1,
+              flexDirection: 'row'
+            }}>
+              <Text style={{ fontSize: 10, fontFamily: 'Roboto-Medium', marginTop: 10 }}>
+                Hello, {user?.displayName}
+              </Text>
+              <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                {
+                  profilepic.userImg ? <ImageBackground
+                    source={{
+                      uri: `data:image/jpeg;base64,${profilepic?.userImg}`,
+                    }}
+                    style={{ width: 35, height: 35 }}
+                    imageStyle={{ borderRadius: 25 }}
+                  /> :
+                    <Avatar bg="green.500">
+                      AJ
+                    </Avatar>
+                }
+
+              </TouchableOpacity>
+
+            </View>
+          </View>
+
         </View>
 
 

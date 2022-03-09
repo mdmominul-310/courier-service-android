@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.reactnavigationv6">
+  package="com.alijahan">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

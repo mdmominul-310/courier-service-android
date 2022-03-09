@@ -1,4 +1,4 @@
-package com.reactnavigationv6;
+package com.alijahan;
 
 import com.facebook.react.ReactActivity;
 
